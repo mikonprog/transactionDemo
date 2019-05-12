@@ -10,38 +10,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/demo")
+@RequestMapping(path = "/mkdemo")
 public class TransactionController {
 
-    private static final Logger LOGGER = Logger.getLogger(Logger.class.getName());
+    private static final Logger logger = Logger.getLogger(Logger.class.getName());
+
+    private TransactionService transactionService;
 
     @Autowired
-    private BankRepository bankRepository;
+    private AccountRepository accountRepository;
 
     @GetMapping(path = "/creditMoney")
     public @ResponseBody String creditMoney(@RequestParam Long creditAccountNumber, @RequestParam Long debitAccountNumber, @RequestParam Long amount) {
 
-        //Retrieve account by number
-        Account creditAccount = new Account(); //findByAccountNumber on DB
-        creditAccount.setAccountNumber(creditAccountNumber);
-        creditAccount.setBalance(15000L);
-        Account debitAccount = new Account(); //findByAccountNumber on DB
-        debitAccount.setAccountNumber(debitAccountNumber);
-        debitAccount.setBalance(8500L);
+        Account creditAccount = accountRepository.findByAccountNumber(creditAccountNumber); //findByAccountNumber on DB using NamedQueries
 
-        LOGGER.info("Amount to be credited: " + amount);
+        Account debitAccount = accountRepository.findByAccountNumber(debitAccountNumber);
 
+        logger.info("Amount to be credited: " + amount);
 
-        Transaction transaction = new Transaction();
-        transaction.setCreditAccount(creditAccount);
-        transaction.setDebitAccount(debitAccount);
-        transaction.setAmount(amount);
-        //bankRepository.save(transaction);
+        transactionService.simpleCreditBalance(creditAccount, debitAccount, amount);
 
-//        if (debitAccount.getBalance() >= amount) {
-//            debitAccount.setBalance(debitAccount.getBalance()-amount);
-//            creditAccount.setBalance(creditAccount.getBalance()+amount);
-//        }
 
         return "Transaction completed successfully!";
     }

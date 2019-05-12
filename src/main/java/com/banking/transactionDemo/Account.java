@@ -28,11 +28,18 @@ public class Account implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer accountId;
 
-    @Column
+    @Column(nullable = false)
     private Long accountNumber;
 
     @Column
     private Long balance;
+
+    public Account() {}
+
+    public Account(Long accountNumber, Long balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
 
     public Integer getAccountId() {
         return accountId;

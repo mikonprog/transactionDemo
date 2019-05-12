@@ -10,12 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class TransactionDemoApplicationTests {
 
-
-
 	@Test @Ignore
 	public void testExistingAccount() {
 
+	}
 
+	@Test @Ignore
+	public void testSimpleTransaction() {
 
 	}
 
