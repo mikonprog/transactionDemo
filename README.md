@@ -23,13 +23,6 @@ Compile and install all packages needed locally through maven on terminal:
 ```
 mvn clean install
 ```
-Run Spring Boot Application and go to :
-
-```
-http://localhost:8080/swagger-ui.html
-```
-
-Use Swagger UI console to subscribe and test the APIs using the predefined accounts' information
 
 ## Running the application
 
@@ -43,6 +36,14 @@ There are two predefined accounts stored in a local database when starting the a
 ```
 
 Use this data as input to test the application through the exposed APIs
+
+Run Spring Boot Application and go to :
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+Use Swagger UI console to subscribe and test the APIs using the predefined accounts' information
 
 On the Transaction Controller there are three endpoints:
 
