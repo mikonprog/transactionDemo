@@ -59,6 +59,8 @@ Execute the API call after filling all required parameters by pressing Execute b
 
 ![Screenshot](swagger-execute.png)
 
+You need first to perform a transaction by calling ```/creditMoney``` API in order to populate transactions table to test the rest
+
 ### End to end tests
 
 Integration tests cover the basic cases of success and failure of the above functionality
