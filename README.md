@@ -18,20 +18,8 @@ MySQL 5.7 or higher
 
 Download or Clone project from GitHub. Open preferably on an IDEA
 
-There are two predefined accounts stored in a local database when starting the application :
+Compile and install all packages needed locally through maven on terminal:
 
-```
-| account_id    | account_number | balance | 
-| ------------- | -------------  |-------- |
-|       1       |    18395627    |  25000  | 
-|       2       |    13902143    |  12000  |
-```
-
-Use this data as input to test the application through the exposed APIs
-
-## Running the application
-
-Compile application locally through maven on terminal:
 ```
 mvn clean install
 ```
@@ -42,6 +30,19 @@ http://localhost:8080/swagger-ui.html
 ```
 
 Use Swagger UI console to subscribe and test the APIs using the predefined accounts' information
+
+## Running the application
+
+There are two predefined accounts stored in a local database when starting the application :
+
+```
+| account_id    | account_number | balance | 
+| ------------- | -------------  |-------- |
+|       1       |    18395627    |  25000  | 
+|       2       |    13902143    |  12000  |
+```
+
+Use this data as input to test the application through the exposed APIs
 
 On the Transaction Controller there are three endpoints:
 
