@@ -53,9 +53,11 @@ On the Transaction Controller there are three endpoints:
 
 Try the APIs by pressing "Try it out" button as displayed on the screenshot below:
 
+![Screenshot](swagger-try-it.png)
 
 Execute the API call after filling all required parameters by pressing Execute button:
 
+![Screenshot](swagger-execute.png)
 
 ### End to end tests
 
