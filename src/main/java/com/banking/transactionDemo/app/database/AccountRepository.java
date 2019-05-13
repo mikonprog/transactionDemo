@@ -1,5 +1,6 @@
-package com.banking.transactionDemo;
+package com.banking.transactionDemo.app.database;
 
+import com.banking.transactionDemo.app.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 

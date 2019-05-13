@@ -1,4 +1,4 @@
-package com.banking.transactionDemo;
+package com.banking.transactionDemo.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
