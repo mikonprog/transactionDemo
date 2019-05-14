@@ -79,6 +79,8 @@ public class TransactionDemoApplicationTests {
 	@Test
 	public void testAvailableSimpleTransaction() {
 		//Given
+		Long afterTransactionDebitBalance = debitAccount.getBalance() - amount;
+		Long afterTransactionCreditBalance = creditAccount.getBalance() + amount;
 
 		//When
 		final Transaction transaction = transactionService.simpleCreditBalance(creditAccount, debitAccount, amount);
@@ -86,6 +88,8 @@ public class TransactionDemoApplicationTests {
 		//Then
 		Assert.assertNotNull(transaction);
 		Assert.assertEquals(amount, transaction.getAmount());
+		Assert.assertEquals(afterTransactionDebitBalance, debitAccount.getBalance());
+		Assert.assertEquals(afterTransactionCreditBalance, creditAccount.getBalance());
 	}
 
 	@Test
