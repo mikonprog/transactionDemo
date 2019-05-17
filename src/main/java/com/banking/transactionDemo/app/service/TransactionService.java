@@ -25,9 +25,9 @@ public class TransactionService {
 
     public Transaction simpleCreditBalance(Account creditAccount, Account debitAccount, Long amount) {
         Transaction transaction = new Transaction();
+        transaction.setTransactionDate(new Date());
         transaction.setCreditAccount(creditAccount.getAccountNumber());
         transaction.setDebitAccount(debitAccount.getAccountNumber());
-        transaction.setAmount(0L);
 
         if (debitAccount.getBalance() >= amount) {
             debitAccount.setBalance(debitAccount.getBalance()-amount);
@@ -41,7 +41,7 @@ public class TransactionService {
             return transaction;
         }
         else {
-            // If a transaction fails it will still be recorded on the db with amount = 0
+            // If a transaction fails it will still be recorded on the db with amount = null
             transactionRepository.save(transaction);
             logger.info("$$$$$$$: Transaction failed.");
             return transaction;

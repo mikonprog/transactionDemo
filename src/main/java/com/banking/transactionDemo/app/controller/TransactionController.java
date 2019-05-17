@@ -39,7 +39,7 @@ public class TransactionController {
         logger.info("$$$$$$$: Amount to be credited: " + amount.toString());
 
         final Transaction transaction = transactionService.simpleCreditBalance(creditAccount, debitAccount, amount);
-        if (transaction.getAmount() != 0L )
+        if (transaction.getAmount() != null)
             return "Transaction completed successfully!";
         else
             return "Transaction failed.";

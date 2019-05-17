@@ -95,7 +95,7 @@ public class TransactionDemoApplicationTests {
 	@Test
 	public void testInSufficientTransaction() {
 		//Given
-		final Long expectedTransactionAmount = 0L;
+		final Long expectedTransactionAmount = null;
 		final Account inSufficient = new Account(23401924L, 200L);
 
 		//When
