@@ -21,14 +21,18 @@ public class TransactionController {
 
     private static final Logger logger = Logger.getLogger(Logger.class.getName());
 
-    @Autowired
-    private TransactionService transactionService;
+    private final TransactionService transactionService;
+
+    private final AccountRepository accountRepository;
+
+    private final TransactionRepository transactionRepository;
 
     @Autowired
-    private AccountRepository accountRepository;
-
-    @Autowired
-    private TransactionRepository transactionRepository;
+    public TransactionController(TransactionService transactionService, AccountRepository accountRepository, TransactionRepository transactionRepository) {
+        this.transactionService = transactionService;
+        this.accountRepository = accountRepository;
+        this.transactionRepository = transactionRepository;
+    }
 
     @GetMapping(path = "/creditMoney")
     public @ResponseBody String creditMoney(@RequestParam Long creditAccountNumber, @RequestParam Long debitAccountNumber, @RequestParam Long amount) {

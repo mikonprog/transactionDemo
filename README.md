@@ -61,6 +61,8 @@ Execute the API call after filling all required parameters by pressing Execute b
 
 You need first to perform a transaction by calling ```/mkdemo/creditMoney``` API in order to populate transactions table to test the rest services
 
+###End to end tests
 
+Integration tests cover the basic functionality of transaction and monitoring services
 
 

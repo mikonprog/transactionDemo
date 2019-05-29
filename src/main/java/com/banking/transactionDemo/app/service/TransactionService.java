@@ -14,14 +14,12 @@ public class TransactionService {
 
     private static final Logger logger = Logger.getLogger(Logger.class.getName());
 
-    @Autowired
-    private TransactionRepository transactionRepository;
+    private final TransactionRepository transactionRepository;
 
+    @Autowired
     public TransactionService(TransactionRepository repository) {
         transactionRepository = repository;
     }
-
-    public TransactionService() {}
 
     public Transaction simpleCreditBalance(Account creditAccount, Account debitAccount, Long amount) {
         Transaction transaction = new Transaction();
